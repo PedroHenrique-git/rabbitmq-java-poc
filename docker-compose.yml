@@ -1,0 +1,16 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+      RABBITMQ_DEFAULT_VHOST: rabbitmq-host
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 15671:15671
+    networks:
+      - rabbitmq_net
+networks:
+  rabbitmq_net:
+    driver: bridge
